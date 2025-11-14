@@ -1,0 +1,7 @@
+{
+  "name": "todayTask",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
