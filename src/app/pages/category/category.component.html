@@ -1,0 +1,15 @@
+<app-header [title]="category()!.name" [showBack]="true"></app-header>
+<ion-content>
+  <div class="contain-general">
+    <div class="contain-category" tabindex="0" role="button" (click)="editCategory()">
+      <ion-icon class="title-icon" [name]="category()?.icon"></ion-icon>
+      <h3 class="title-section">{{ category()?.name }}</h3>
+      <span tabindex="0" role="button" class="edit-button">Editar</span>
+    </div>
+    <div class="list">
+      @for(task of tasks(); track task.id) {
+      <app-card-task [task]="task" [showCategory]="false"></app-card-task>
+      }
+    </div>
+  </div>
+</ion-content>

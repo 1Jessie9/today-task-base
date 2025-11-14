@@ -1,0 +1,32 @@
+<div class="card-task">
+  @if(showComplete()) {
+  <div class="card-background complete">
+    <div tabindex="0" role="button" class="btn-style complete">
+      <ion-icon name="checkmark-done-circle"></ion-icon>
+      <span>Completar</span>
+    </div>
+  </div>
+  }
+  <div class="content" #cardContent (click)="resetSwipe()"
+    [ngStyle]="{ transform: 'translateX(' + translateX() + 'px)' }">
+    <div class="info">
+      <h6 class="title">{{ task().title }}</h6>
+      <p class="description">{{ showCategory() ? task().category + ' -' : '' }} Prioridad
+        {{PriorityEnum[task().priority]}}
+      </p>
+    </div>
+    <ion-icon class="icon" [name]="task().icon"></ion-icon>
+  </div>
+  @if(showEdit()) {
+  <div class="card-background">
+    <div tabindex="0" role="button" class="btn-style edit">
+      <ion-icon name="pencil"></ion-icon>
+      <span>Editar</span>
+    </div>
+    <div tabindex="0" role="button" class="btn-style delete">
+      <ion-icon name="trash"></ion-icon>
+      <span>Eliminar</span>
+    </div>
+  </div>
+  }
+</div>

@@ -1,7 +1,10 @@
 {
   "name": "todayTask",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
   },
   "type": "angular-standalone"
 }

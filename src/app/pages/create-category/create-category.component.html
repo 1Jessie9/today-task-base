@@ -1,0 +1,36 @@
+<app-header [title]="'Crear categoría'" [showBack]="true"></app-header>
+
+<ion-content>
+  <div class="container-create-category contain-general">
+    <div class="form" ngNoForm>
+      <ion-input class="input-style" label="Categoría" labelPlacement="floating" placeholder="Nueva categoría..."
+        (ionInput)="inputName($event)" [value]="name()">
+      </ion-input>
+
+      <div class="colors">
+        <ion-label class="label-style">Color</ion-label>
+        <div class="color-options">
+          @for(color of colors; track color) {
+          <div class="color-circle" [style.background-color]="color" (click)="selectColor(color)" [class.selected]="selectedColor() === color"></div>
+          }
+        </div>
+      </div>
+
+      <div class="icons">
+        <ion-label class="label-style">Categoría</ion-label>
+        <div class="icon-options">
+          @for(icon of icons; track icon) {
+          <ion-button size="medium" [fill]="selectedIcon() === icon ? 'solid' : 'clear'" class="filter-button"
+            (click)="selectIcon(icon)" [color]="selectedIcon() === icon ? 'primary' : ''">
+            <ion-icon [name]="icon" size="medium"></ion-icon>
+          </ion-button>
+          }
+        </div>
+      </div>
+    </div>
+
+    <ion-button expand="block" class="btn-create-category" (click)="saveCategory()">
+      {{ categoryId() ? 'Guardar cambios' : 'Crear categoría' }}
+    </ion-button>
+  </div>
+</ion-content>

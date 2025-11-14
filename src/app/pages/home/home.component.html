@@ -1,0 +1,53 @@
+<app-header title="Today Task"></app-header>
+<ion-content>
+  <div class="container-home">
+    <div class="header">
+      <h1 class="title">Today Task</h1>
+      <p class="description">Hoy tienes <b>{{pendingTasksCount()}} tareas pendientes</b></p>
+    </div>
+
+    <div class="categories">
+      <section class="contain-button">
+        <h3 class="title-section">Categorías</h3>
+        <ion-button class="fab-button" aria-label="Crear categoría" (click)="navigateToCreateCategory()">
+          <ion-icon slot="icon-only" name="add"></ion-icon>
+        </ion-button>
+      </section>
+      <div class="list">
+        <swiper-container [config]="swiperConfig" class="swiper-wrapper">
+          @for(category of categories; track category.id) {
+          <swiper-slide class="slide">
+            <div class="category-card" (click)="handleCategory(category)" tabindex="0" role="button">
+              <ion-icon class="icon" [name]="category.icon"></ion-icon>
+              <h6 class="title">{{ category.name }}</h6>
+              <p class="count">{{ category.taskCount }} tareas</p>
+            </div>
+          </swiper-slide>
+          }@empty {
+          <p class="no-found">No hay categorías disponibles. ¡Crea una nueva!</p>
+          }
+        </swiper-container>
+      </div>
+    </div>
+
+    @if(categories.length > 0) {
+    <div class="tasks">
+      <div class="contain-title">
+        <section class="contain-button">
+          <h3 class="title-section">Tareas</h3>
+          <ion-button aria-label="Crear tarea" (click)="navigateToCreateTask()">
+            <ion-icon slot="icon-only" name="add"></ion-icon>
+          </ion-button>
+        </section>
+      </div>
+      <div class="list">
+        @for(task of tasks; track task.id) {
+        <app-card-task [task]="task"></app-card-task>
+        }@empty {
+        <p class="no-found">No hay tareas disponibles. ¡Crea una nueva!</p>
+        }
+      </div>
+    </div>
+    }
+  </div>
+</ion-content>

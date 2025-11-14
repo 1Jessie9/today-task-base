@@ -1,0 +1,15 @@
+<ion-header [translucent]="true" class="header">
+  <ion-toolbar class="header__toolbar" mode="ios">
+
+    @if(showBack()) {
+      <ion-buttons class="header__backBtn" slot="start">
+        <ion-back-button default-href="#" text=""></ion-back-button>
+      </ion-buttons>
+    }
+
+    <ion-title class="header__title">
+      {{ title() }}
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>

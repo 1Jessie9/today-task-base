@@ -1,0 +1,19 @@
+.header {
+  --background: var(--ion-color-tertiary);
+  border-radius: 0 0 25px 25px;
+
+  &__toolbar {
+    --background: var(--ion-color-tertiary);
+    border-radius: 0 0 25px 25px;
+    top: 0;
+    --opacity: 1;
+  }
+
+  &__backBtn {
+    padding-left: 10px;
+  }
+
+  &__title {
+    text-align: center;
+  }
+}
